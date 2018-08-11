@@ -1,0 +1,16 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+.rate-total > h2 {
+    display: inline-block;
+}
+
+.rate-delete {
+    padding-left: 1rem;
+    font-size: 1.5rem;
+
+    & > i {
+        cursor: pointer;
+        color: $red;
+    }
+}

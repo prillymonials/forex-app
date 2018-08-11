@@ -1,4 +1,9 @@
 module.exports = {
+    automock: false,
+    setupFiles: [
+        '<rootDir>/config/jest/fetch-mock.js',
+        '<rootDir>/config/jest/window-alert.js',
+    ],
     roots: [
         '<rootDir>/src'
     ],
@@ -15,7 +20,7 @@ module.exports = {
         'node'
     ],
     moduleNameMapper: {
-        '\.(scss|less|css|jpg|png)$': '<rootDir>/config/empty-module.js',
+        '\.(scss|less|css|jpg|png)$': '<rootDir>/config/jest/empty-module.js',
     },
     collectCoverageFrom: [
         'src/**/*.{ts,tsx}',

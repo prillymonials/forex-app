@@ -14,8 +14,11 @@ const appSrc = path.resolve(rootPath, 'src', 'index');
 const appTsConfig = path.resolve(rootPath, 'tsconfig.json');
 const appTsLint = path.resolve(rootPath, 'tslint.json');
 const appPublic = path.resolve(rootPath, 'public');
+const appNodeModules = path.resolve(rootPath, 'node_modules');
 
 const appHtml = path.resolve(appPublic, 'index.html');
+
+const port = 3000;
 
 module.exports = {
     // You may want 'eval' instead if you prefer to see the compiled output in DevTools.
@@ -27,8 +30,7 @@ module.exports = {
         // connect to WebpackDevServer by a socket and get notified about changes.
         // When you save a file, the client will either apply hot updates (in case
         // of CSS changes), or refresh the page (in case of JS changes).
-        'webpack-dev-server/client?http://localhost:8080',
-        // require.resolve('webpack/hot/dev-server'),
+        `webpack-dev-server/client?http://localhost:${port}`,
         // App's code:
         './src/index',
     ],
@@ -61,7 +63,7 @@ module.exports = {
                 test: /.(css|scss|sass)$/,
                 use: [
                     { loader: 'style-loader' },
-                    { loader: 'css-loader', options: { module: false, importLoaders: 2 } },
+                    { loader: 'css-loader', options: { modules: false, importLoaders: 2 } },
                     { loader: 'postcss-loader', options: { plugins: () => autoprefixer() } },
                     { loader: 'sass-loader', options: { importLoaders: 1 } }
                 ]
@@ -125,6 +127,7 @@ module.exports = {
         // project directory is dangerous because we may expose sensitive files.
         contentBase: [
             appPublic,
+            path.resolve(appNodeModules, 'font-awesome'),
         ],
         // By default files from `contentBase` will not trigger a page reload.
         watchContentBase: true,
@@ -139,9 +142,9 @@ module.exports = {
         publicPath: '/',
         // WebpackDevServer is noisy by default so we emit custom message instead
         // by listening to the compiler events with `compiler.plugin` calls above.
-        // quiet: true,
+        quiet: true,
         host: 'localhost',
-        port: 8080,
+        port: port,
         // Automatically open the browser
         open: true,
         overlay: true,

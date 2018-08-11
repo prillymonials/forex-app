@@ -9,6 +9,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const rootPath = path.resolve(__dirname, '..');
 
@@ -17,6 +18,7 @@ const appTsConfig = path.resolve(rootPath, 'tsconfig.prod.json');
 const appTsLint = path.resolve(rootPath, 'tslint.json');
 const appPublic = path.resolve(rootPath, 'public');
 const appDist = path.resolve(rootPath, 'dist');
+const appNodeModules = path.resolve(rootPath, 'node_modules');
 
 const appHtml = path.resolve(appPublic, 'index.html');
 
@@ -216,6 +218,13 @@ module.exports = {
             tsconfig: appTsConfig,
             tslint: appTsLint,
         }),
+        // Copy Font Awesome
+        new CopyWebpackPlugin([
+            {
+                from: path.resolve(appNodeModules, 'font-awesome', 'fonts'),
+                to: path.resolve(appDist, 'fonts')
+            }
+        ]),
     ],
     // Some libraries import Node modules but don't use them in the browser.
     // Tell Webpack to provide empty mocks for them so importing them works.

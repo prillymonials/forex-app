@@ -13,8 +13,14 @@
     "author": "Cornelius Alvin Prilly <cornelius.prilly@gmail.com>",
     "license": "ISC",
     "dependencies": {
+        "bootstrap": "^4.1.3",
+        "font-awesome": "^4.7.0",
+        "jquery": "^3.3.1",
+        "popper.js": "^1.14.4",
+        "prop-types": "^15.6.2",
         "react": "^16.4.2",
-        "react-dom": "^16.4.2"
+        "react-dom": "^16.4.2",
+        "whatwg-fetch": "^2.0.4"
     },
     "devDependencies": {
         "@types/enzyme": "^3.1.13",
@@ -22,6 +28,7 @@
         "@types/jest": "^22.1.3",
         "@types/react": "^16.4.8",
         "@types/react-dom": "^16.0.7",
+        "@types/sinon": "^5.0.1",
         "autoprefixer": "^9.1.0",
         "awesome-typescript-loader": "^4.0.1",
         "babel-core": "^6.26.3",
@@ -37,10 +44,12 @@
         "fork-ts-checker-webpack-plugin": "^0.4.6",
         "html-webpack-plugin": "^3.2.0",
         "jest": "^22.4.2",
+        "jest-fetch-mock": "^1.6.5",
         "node-sass": "^4.9.2",
         "postcss-loader": "^3.0.0",
         "regenerator-runtime": "^0.12.1",
         "sass-loader": "^7.1.0",
+        "sinon": "^6.1.5",
         "style-loader": "^0.22.1",
         "sw-precache-webpack-plugin": "^0.11.5",
         "ts-jest": "^22.0.4",
