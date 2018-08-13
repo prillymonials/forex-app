@@ -4,14 +4,18 @@ FROM node:latest
 # Work directory
 WORKDIR /opt/app
 
+# Installing package.json only
+COPY package*.json ./
+RUN npm install --silent
+ENV PATH=$PATH:/opt/app/node_modules/.bin
+
 # Deploy the application
 COPY . ./
-RUN npm install
 RUN npm run build
 
 # HTTP Server for running
-RUN npm install http-server --global
+RUN npm install http-server
 
 # Run the application
-WORKDIR /opt/app/dist
-["http-server"]
+EXPOSE 8080
+CMD ["http-server", "./dist"]

@@ -6,4 +6,3 @@ node_modules
 dist
 
 .gitignore
-jest.config.js

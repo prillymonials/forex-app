@@ -7,7 +7,8 @@
     "scripts": {
         "start": "webpack-dev-server --config config/webpack.config.dev.js",
         "build": "webpack --config config/webpack.config.prod.js",
-        "test": "jest --coverage"
+        "test": "jest --coverage",
+        "prebuild": "npm run test"
     },
     "keywords": [],
     "author": "Cornelius Alvin Prilly <cornelius.prilly@gmail.com>",
