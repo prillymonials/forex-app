@@ -13,9 +13,9 @@ ENV PATH=$PATH:/opt/app/node_modules/.bin
 COPY . ./
 RUN npm run build
 
-# HTTP Server for running
+# HTTP Server for serving the web server
 RUN npm install http-server
 
 # Run the application
 EXPOSE 8080
-CMD ["http-server", "./dist"]
+CMD ["http-server", "./dist", "-p", "8080"]
