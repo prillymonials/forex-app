@@ -49,6 +49,7 @@ const Header: SFC<IHeaderProps> = ({ handleInputChange }) => {
                                 type="number"
                                 className="form-control text-right" 
                                 placeholder="Amount"
+                                min={0}
                                 defaultValue={INITIAL_CURRENCY_AMOUNT.toString()}
                                 onChange={handleInputChange}
                             />
