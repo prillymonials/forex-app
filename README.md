@@ -2,8 +2,9 @@
 
 ## Overview
 
-The purpose this application is to get the selected currency(s) for trading based on USD currency.
-This application can add new currency, set the amount of USD, and delete the unnecessary currency.
+The purpose this application is to show an information about exchange rate from USD to other currencies.
+This application can be convert an amount of USD to one or multiple currency.
+For example, we can know how much 150 USD if it converted into IDR and/or SGD.
 
 ## Folder Structure
 
